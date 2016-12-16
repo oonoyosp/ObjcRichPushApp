@@ -23,26 +23,25 @@
     [NCMB setApplicationKey:@"YOUR_NCMB_APPLICATION_KEY"
                   clientKey:@"YOUR_NCMB_CLIENT_KEY"];
     
+    // DeviceTokenの要求
     if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){10, 0, 0}]){
-        
-        //iOS10以上での、DeviceToken要求方法
+        /** iOS10以上 **/
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert |
                                                  UNAuthorizationOptionBadge |
                                                  UNAuthorizationOptionSound)
                               completionHandler:^(BOOL granted, NSError * _Nullable error) {
                                   if (error) {
+                                      // エラー時の処理
                                       return;
                                   }
                                   if (granted) {
-                                      //通知を許可にした場合DeviceTokenを要求
+                                      // 通知を許可にした場合DeviceTokenを要求する
                                       [[UIApplication sharedApplication] registerForRemoteNotifications];
                                   }
                               }];
     } else if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){8, 0, 0}]){
-        
-        //iOS10未満での、DeviceToken要求方法
-        
+        /** iOS8以上iOS10未満 **/
         //通知のタイプを設定したsettingを用意
         UIUserNotificationType type = UIUserNotificationTypeAlert |
         UIUserNotificationTypeBadge |
@@ -50,12 +49,17 @@
         UIUserNotificationSettings *setting;
         setting = [UIUserNotificationSettings settingsForTypes:type
                                                     categories:nil];
-        
         //通知のタイプを設定
         [[UIApplication sharedApplication] registerUserNotificationSettings:setting];
-        
         //DeviceTokenを要求
         [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    
+    // MARK: アプリが起動されるときに実行される処理を追記する場所
+    NSDictionary *userInfo = [launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
+    if (userInfo) {
+        //リッチプッシュ通知を表示させる
+        [NCMBPush handleRichPush:userInfo];
     }
     
     return YES;
@@ -80,6 +84,16 @@
             // 端末情報の登録が失敗した場合の処理
         }
     }];
+}
+
+// MARK: アプリが起動しているときに実行される処理を追記する場所
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    if ([userInfo.allKeys containsObject:@"com.nifty.RichUrl"]){
+        if ([[UIApplication sharedApplication] applicationState] != UIApplicationStateActive){
+            // リッチプッシュを表示させる処理
+            [NCMBPush handleRichPush:userInfo];
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
