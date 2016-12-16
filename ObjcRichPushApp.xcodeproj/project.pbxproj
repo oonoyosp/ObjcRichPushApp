@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4063112D9D853FF78B45BC5B /* libPods-ObjcRichPushApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F52CBCA8E19E7CFABA443BBC /* libPods-ObjcRichPushApp.a */; };
 		9D6053081E0382A50089B4C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6053071E0382A50089B4C3 /* main.m */; };
 		9D60530B1E0382A50089B4C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D60530A1E0382A50089B4C3 /* AppDelegate.m */; };
 		9D60530E1E0382A50089B4C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D60530D1E0382A50089B4C3 /* ViewController.m */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F16E43C6A17CF03D2363468 /* Pods-ObjcRichPushApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcRichPushApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjcRichPushApp/Pods-ObjcRichPushApp.release.xcconfig"; sourceTree = "<group>"; };
 		9D6053031E0382A50089B4C3 /* ObjcRichPushApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcRichPushApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6053071E0382A50089B4C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9D6053091E0382A50089B4C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		9D6053121E0382A50089B4C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D6053151E0382A50089B4C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D6053171E0382A50089B4C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1C4A401857376DDE0418702 /* Pods-ObjcRichPushApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcRichPushApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjcRichPushApp/Pods-ObjcRichPushApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F52CBCA8E19E7CFABA443BBC /* libPods-ObjcRichPushApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjcRichPushApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4063112D9D853FF78B45BC5B /* libPods-ObjcRichPushApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		691D99703A63E32AB4AC36A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F52CBCA8E19E7CFABA443BBC /* libPods-ObjcRichPushApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9D6052FA1E0382A50089B4C3 = {
 			isa = PBXGroup;
 			children = (
 				9D6053051E0382A50089B4C3 /* ObjcRichPushApp */,
 				9D6053041E0382A50089B4C3 /* Products */,
+				A3D29A6DE41299DAB7A5DBF4 /* Pods */,
+				691D99703A63E32AB4AC36A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +94,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A3D29A6DE41299DAB7A5DBF4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C1C4A401857376DDE0418702 /* Pods-ObjcRichPushApp.debug.xcconfig */,
+				2F16E43C6A17CF03D2363468 /* Pods-ObjcRichPushApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D60531A1E0382A50089B4C3 /* Build configuration list for PBXNativeTarget "ObjcRichPushApp" */;
 			buildPhases = (
+				B47168BE1418395250177FBD /* [CP] Check Pods Manifest.lock */,
 				9D6052FF1E0382A50089B4C3 /* Sources */,
 				9D6053001E0382A50089B4C3 /* Frameworks */,
 				9D6053011E0382A50089B4C3 /* Resources */,
+				9ED08052CE39DB06FC388224 /* [CP] Embed Pods Frameworks */,
+				AB917101DC8CC255BF8439CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9ED08052CE39DB06FC388224 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ObjcRichPushApp/Pods-ObjcRichPushApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB917101DC8CC255BF8439CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ObjcRichPushApp/Pods-ObjcRichPushApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B47168BE1418395250177FBD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9D6052FF1E0382A50089B4C3 /* Sources */ = {
@@ -270,6 +345,7 @@
 		};
 		9D60531B1E0382A50089B4C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1C4A401857376DDE0418702 /* Pods-ObjcRichPushApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ObjcRichPushApp/Info.plist;
@@ -282,6 +358,7 @@
 		};
 		9D60531C1E0382A50089B4C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F16E43C6A17CF03D2363468 /* Pods-ObjcRichPushApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ObjcRichPushApp/Info.plist;
